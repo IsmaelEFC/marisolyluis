@@ -2,7 +2,7 @@
         // ==========================================
         // CONFIGURACIÓN - PEGA AQUÍ TU URL DE GOOGLE SCRIPT
         // ==========================================
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7kEzJmR9bSC3tTuYeMLUh7H4sZEDWQTC-1r6Ue3r4k7wQv9GQnD8z/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgQzAXOHVBYxBbCjZn7YBnO9FmVDMFtwIlcp2P6GIEtSeQPuKW7B7ntMhftVVNM3E/exec';
 
         // ==========================================
         // FUNCIONES PRINCIPALES
@@ -172,30 +172,29 @@
         responseMessage.style.textAlign = 'center';
         responseMessage.style.fontWeight = '500';
         form.appendChild(responseMessage);
-        
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const submitBtn = document.getElementById('submitBtn');
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const guests = document.getElementById('guests').value;
-            const message = document.getElementById('message').value.trim();
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const guestsInput = document.getElementById('guests');
 
             // Validaciones
-            if (!name || !phone || !guests) {
+            if (!nameInput.value.trim() || !phoneInput.value.trim() || !guestsInput.value) {
                 responseMessage.textContent = 'Por favor completa todos los campos requeridos';
                 responseMessage.style.color = '#d4af37';
                 return;
             }
 
-            if (phone.length !== 9 || !/^\d+$/.test(phone)) {
+            if (phoneInput.value.trim().length !== 9) {
                 responseMessage.textContent = 'Por favor ingresa un número de teléfono válido (9 dígitos)';
                 responseMessage.style.color = '#d4af37';
                 return;
             }
 
-            const fullPhone = '+56' + phone;
+            const fullPhone = '+56' + phoneInput.value.trim();
 
             // Deshabilitar botón
             const originalBtnText = submitBtn.textContent;
@@ -205,14 +204,14 @@
 
             // Enviar a Google Sheets
             const formData = new FormData(form);
-            formData.set('phone', fullPhone); // Aseguramos que el teléfono tenga el código de país
+            formData.set('phone', fullPhone);
 
             try {
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 if (!response.ok) {
                     // Si la respuesta del servidor no es exitosa (ej. error 500)
                     throw new Error(`Error del servidor: ${response.statusText}`);
@@ -230,13 +229,13 @@
                     // Mostrar mensaje de éxito
                     responseMessage.textContent = '¡Confirmación enviada con éxito!';
                     responseMessage.style.color = '#4caf50';
-                    
+
                     // Mostrar modal de éxito
                     const modal = document.getElementById('successModal');
                     const modalMessage = document.getElementById('modalMessage');
-                    modalMessage.textContent = `¡Gracias ${name}! Tu confirmación para ${guests} ${guests === '1' ? 'persona' : 'personas'} ha sido recibida exitosamente.`;
+                    modalMessage.textContent = `¡Gracias ${nameInput.value.trim()}! Tu confirmación para ${guestsInput.value} ${guestsInput.value === '1' ? 'persona' : 'personas'} ha sido recibida exitosamente.`;
                     modal.classList.add('show');
-                    
+
                     // Limpiar formulario
                     form.reset();
                 } else {
@@ -250,7 +249,7 @@
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
-                
+
                 // Desaparecer el mensaje después de 5 segundos
                 if (responseMessage.textContent) {
                     setTimeout(() => {
@@ -264,9 +263,7 @@
                     }, 5000);
                 }
             }
-
-                // Código del manejador del formulario
-            });
+        });
 
         // Modal functions
         function closeModal() {
