@@ -240,6 +240,8 @@
                     form.reset();
                 } else {
                     responseMessage.textContent = 'Hubo un problema al enviar tu confirmación. Por favor, intenta nuevamente o contacta directamente por WhatsApp.';
+                    // Mostramos el error específico de Google en la consola para depuración
+                    console.error('Error reportado por Google Script:', data.error || 'No se proporcionó un mensaje de error específico.');
                     responseMessage.style.color = '#f44336';
                 }
             } catch (error) {
