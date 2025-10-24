@@ -254,15 +254,9 @@
 
                 // Desaparecer el mensaje después de 5 segundos
                 if (responseMessage.textContent) {
-                    setTimeout(() => {
-                        responseMessage.style.transition = 'opacity 1s';
-                        responseMessage.style.opacity = '0';
-                        setTimeout(() => {
-                            responseMessage.textContent = '';
-                            responseMessage.style.opacity = '1';
-                            responseMessage.style.transition = 'none';
-                        }, 1000);
-                    }, 5000);
+                    setTimeout(() => { // Ocultar el mensaje después de 5 segundos
+                        responseMessage.textContent = '';
+                    }, 5000); // 5000 milisegundos = 5 segundos
                 }
             }
         });
