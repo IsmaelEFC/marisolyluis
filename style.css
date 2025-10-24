@@ -17,9 +17,14 @@
             --accent: #C9A87C;
         }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
+            overflow-x: clip; /* Previene el desbordamiento horizontal y vertical no deseado */
             background: var(--cream-light);
             color: var(--text-dark);
             opacity: 0;
@@ -109,7 +114,7 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: 100svh; /* Usa la altura del viewport más pequeña para evitar saltos en móviles */
             position: relative;
             display: flex;
             align-items: center;
@@ -743,14 +748,13 @@
 
         /* Floating Hearts */
         .floating-hearts {
-            position: fixed;
+            position: absolute; /* Cambiado para contenerlo en su sección padre */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            overflow: hidden;
         }
 
         .heart {
@@ -762,7 +766,7 @@
 
         @keyframes floatHeart {
             0% {
-                transform: translateY(100vh) rotate(0deg);
+                transform: translateY(100%) rotate(0deg); /* Usamos % para que se ajuste a la altura de la sección */
                 opacity: 0;
             }
 
