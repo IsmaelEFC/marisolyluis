@@ -8,13 +8,6 @@
         // FUNCIONES PRINCIPALES
         // ==========================================
 
-        // Scroll event listener for other functionality
-        let lastScrollY = 0;
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.pageYOffset;
-            lastScrollY = currentScrollY;
-        });
-
         // Cargar la página
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
@@ -25,28 +18,19 @@
 
             if (copyButton) {
                 copyButton.addEventListener('click', () => {
-                    // Obtener todos los valores de los datos bancarios
                     const bankValues = Array.from(document.querySelectorAll('.bank-value[data-copy]'));
                     const formattedText = bankValues.map(el => {
                         const label = el.closest('.bank-info').querySelector('.bank-label').textContent;
                         return `${label}: ${el.getAttribute('data-copy')}`;
                     }).join('\n');
 
-                    // Copiar al portapapeles
                     navigator.clipboard.writeText(formattedText).then(() => {
-                        // Mostrar notificación
-                        notification.style.display = 'block';
-                        void notification.offsetWidth; // Trigger reflow
                         notification.classList.add('show');
 
-                        // Ocultar notificación después de 2 segundos
                         setTimeout(() => {
                             notification.classList.remove('show');
-                            // Esperar a que termine la animación para ocultar
-                            setTimeout(() => {
-                                notification.style.display = 'none';
-                            }, 300);
                         }, 2000);
+
                     }).catch(err => {
                         console.error('Error al copiar: ', err);
                     });
@@ -152,16 +136,18 @@
         }
 
         window.addEventListener('scroll', () => {
+            // --- Parallax Effect ---
             const scrolled = window.pageYOffset;
             const heroBg = document.querySelector('.hero-bg.parallax');
             if (heroBg) heroBg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
-
+        
             applyParallax('parallax1', 0.5);
             applyParallax('parallax2', 0.3);
             applyParallax('parallax3', 0.4);
             applyParallax('parallax4', 0.2);
             applyParallax('parallax5', 0.35);
             applyParallax('parallax6', 0.45);
+            // --- End Parallax Effect ---
         });
 
         // Form Submission con Google Sheets
@@ -217,13 +203,7 @@
                     throw new Error(`Error del servidor: ${response.statusText}`);
                 }
 
-                const text = await response.text();
-                let data;
-                try {
-                    data = JSON.parse(text);
-                } catch (e) {
-                    data = { success: false };
-                }
+                const data = await response.json();
 
                 if (data.success) {
                     // Mostrar mensaje de éxito
