@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitación de boda de Marisol y Luis - 15 de Febrero 2026">
+    <meta property="og:title" content="Boda Marisol y Luis">
+    <meta property="og:description" content="Celebra con nosotros nuestro día especial">
+    <title>Nuestra Boda - Marisol y Luis</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Music Control -->
+    <button aria-label="Control de música" id="musicControl" class="music-control">
+        <span class="music-icon" aria-hidden="true">🎵</span>
+    </button>
+
+    <!-- Share Button -->
+    <a href="#" id="shareButton" class="share-button" aria-label="Compartir invitación">
+        <span class="share-icon" aria-hidden="true">📤</span>
+    </a>
+
+    <!-- Background Audio -->
+    <audio id="bgMusic" loop>
+        <source src="audio/Ed Sheeran - Perfect (Lyrics) - 7clouds.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts">
+        <div class="heart">✨</div>
+        <div class="heart">💛</div>
+        <div class="heart">🤍</div>
+        <div class="heart">✨</div>
+        <div class="heart">💛</div>
+        <div class="heart">🤍</div>
+        <div class="heart">✨</div>
+        <div class="heart">💛</div>
+        <div class="heart">🤍</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg parallax" style="background-image: url('images/pareja.jpeg');"></div>
+
+        <div class="flower-decoration top-left"></div>
+        <div class="flower-decoration top-right"></div>
+        <div class="flower-decoration bottom-left"></div>
+        <div class="flower-decoration bottom-right"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Marisol y Luis</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-date">15 . 02 . 2026</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="parallax-bg" id="parallax1"></div>
+
+        <div class="section-flower left" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad1">
+                        <stop offset="0%" stop-color="#E8D4A2" />
+                        <stop offset="100%" stop-color="#D4AF37" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad1)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad1)" opacity="0.8" transform="rotate(72)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad1)" opacity="0.8" transform="rotate(144)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad1)" opacity="0.8" transform="rotate(216)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad1)" opacity="0.8" transform="rotate(288)" />
+                    <circle r="10" fill="#B8963C" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <h2 class="section-title" data-animate>Cuenta Regresiva</h2>
+        <div class="countdown-container">
+            <div class="countdown-item" data-animate>
+                <div class="countdown-number" id="days">0</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-item" data-animate>
+                <div class="countdown-number" id="hours">0</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-item" data-animate>
+                <div class="countdown-number" id="minutes">0</div>
+                <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-item" data-animate>
+                <div class="countdown-number" id="seconds">0</div>
+                <div class="countdown-label">Segundos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-parallax-bg" id="parallax2"></div>
+
+        <div class="section-flower right" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad2">
+                        <stop offset="0%" stop-color="#E8C4A0" />
+                        <stop offset="100%" stop-color="#C9A87C" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(60)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(120)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(180)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(240)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad2)" opacity="0.8" transform="rotate(300)" />
+                    <circle r="9" fill="#D4AF37" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="story-content">
+            <h2 class="section-title" data-animate>Nuestra Historia</h2>
+            <p class="story-text" data-animate>
+                Hay amores que nacen de una mirada, otros de una sonrisa. El nuestro nació de ambas,
+                en un momento perfecto donde el universo conspiraba para encontrarnos. Desde aquel día,
+                cada amanecer ha sido una nueva promesa, cada atardecer una nueva historia escrita juntos.
+            </p>
+            <p class="story-text" data-animate>
+                Hoy queremos que sean parte del día más importante de nuestras vidas,
+                donde dos almas se convierten en una, donde dos familias se unen,
+                y donde el amor se celebra en su máxima expresión.
+            </p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="parallax-bg" id="parallax3"></div>
+
+        <div class="section-flower left" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad3">
+                        <stop offset="0%" stop-color="#E8D4A2" />
+                        <stop offset="100%" stop-color="#B8963C" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(45)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(90)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(135)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(180)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(225)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(270)" />
+                    <ellipse rx="17" ry="29" fill="url(#petalGrad3)" opacity="0.8" transform="rotate(315)" />
+                    <circle r="10" fill="#D4AF37" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <h2 class="section-title" data-animate>Celebración</h2>
+        <div class="events-container">
+            <div class="event-card" data-animate>
+                <div class="event-icon">⛪</div>
+                <h3 class="event-title">Ceremonia</h3>
+                <p class="event-time">16:00 hrs</p>
+                <p class="event-details">Sábado, 15 de Febrero 2026</p>
+                <p class="event-location">Iglesia San Francisco</p>
+                <p class="event-details">Av. Principal 456, Santiago</p>
+                <a href="#" class="event-btn">VER EN MAPA</a>
+            </div>
+            <div class="event-card" data-animate>
+                <div class="event-icon">🥂</div>
+                <h3 class="event-title">Recepción</h3>
+                <p class="event-time">19:00 hrs</p>
+                <p class="event-details">Sábado, 15 de Febrero 2026</p>
+                <p class="event-location">Jardín Los Rosales</p>
+                <p class="event-details">Camino del Valle 789, Santiago</p>
+                <a href="#" class="event-btn">VER EN MAPA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="gifts-section">
+        <div class="parallax-bg" id="parallax5"></div>
+
+        <div class="section-flower right" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad6">
+                        <stop offset="0%" stop-color="#E8D4A2" />
+                        <stop offset="100%" stop-color="#D4AF37" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad6)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad6)" opacity="0.8" transform="rotate(72)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad6)" opacity="0.8" transform="rotate(144)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad6)" opacity="0.8" transform="rotate(216)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad6)" opacity="0.8" transform="rotate(288)" />
+                    <circle r="10" fill="#B8963C" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="gifts-content">
+            <h2 class="section-title" data-animate>Mesa de Regalos</h2>
+            <p class="gifts-text" data-animate>
+                Tu presencia es el mejor regalo que nos puedes dar este día, pero si quieres tener un detalle
+                con nosotros y seguir contribuyendo a nuestra historia será bienvenido...
+            </p>
+
+            <div class="envelopes-container">
+                <div class="envelope" data-animate>
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30 L50 55 L90 30 L90 80 L10 80 Z" fill="#E8D4A2" stroke="#D4AF37"
+                            stroke-width="2" />
+                        <path d="M10 30 L50 55 L90 30 L50 20 Z" fill="#D4AF37" />
+                        <circle cx="50" cy="50" r="8" fill="#B8963C" />
+                    </svg>
+                </div>
+                <div class="envelope" data-animate>
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30 L50 55 L90 30 L90 80 L10 80 Z" fill="#E8C4A0" stroke="#C9A87C"
+                            stroke-width="2" />
+                        <path d="M10 30 L50 55 L90 30 L50 20 Z" fill="#C9A87C" />
+                        <path d="M40 50 L50 55 L60 50" stroke="#B8963C" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+                <div class="envelope" data-animate>
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 30 L50 55 L90 30 L90 80 L10 80 Z" fill="#E8D4A2" stroke="#D4AF37"
+                            stroke-width="2" />
+                        <path d="M10 30 L50 55 L90 30 L50 20 Z" fill="#D4AF37" />
+                        <text x="50" y="60" font-size="20" text-anchor="middle" fill="#B8963C">💛</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="bank-details" data-animate>
+                <div class="bank-header">
+                    <h3 class="bank-title">Datos Bancarios</h3>
+                    <button id="copyBankData" class="copy-button" title="Copiar datos bancarios">
+                        <span class="copy-icon">📋</span> Copiar datos bancarios
+                    </button>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-label">Banco</div>
+                    <div class="bank-value" data-copy="Banco Estado">Banco Estado</div>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-label">Tipo de Cuenta</div>
+                    <div class="bank-value" data-copy="Cuenta Vista">Cuenta Vista</div>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-label">Número de Cuenta</div>
+                    <div class="bank-value" data-copy="17170032">17170032</div>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-label">RUT</div>
+                    <div class="bank-value" data-copy="17.170.032-9">17.170.032-9</div>
+                </div>
+                <div class="bank-info">
+                    <div class="bank-label">Titular</div>
+                    <div class="bank-value" data-copy="Marisol Sanhueza Aguayo">Marisol Sanhueza Aguayo</div>
+                </div>
+                <div id="copyNotification" class="copy-notification">¡Datos copiados al portapapeles!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="dresscode-section">
+        <div class="parallax-bg" id="parallax6"></div>
+
+        <div class="section-flower left" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad7">
+                        <stop offset="0%" stop-color="#E8C4A0" />
+                        <stop offset="100%" stop-color="#C9A87C" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(60)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(120)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(180)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(240)" />
+                    <ellipse rx="16" ry="28" fill="url(#petalGrad7)" opacity="0.8" transform="rotate(300)" />
+                    <circle r="9" fill="#D4AF37" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="dresscode-content">
+            <h2 class="section-title" data-animate>Código de Vestimenta</h2>
+            <p class="dresscode-text" data-animate>
+                Viste como te sientas más cómodo y refleja tu estilo personal en nuestra celebración
+            </p>
+
+            <div class="dresscode-cards">
+                <div class="dresscode-card" data-animate>
+                    <div class="dresscode-icon">👔</div>
+                    <h3 class="dresscode-title">Caballeros</h3>
+                    <p class="dresscode-description">
+                        Formal, semi-formal o casual elegante.
+                        Siéntete libre de usar el estilo que más te represente.
+                    </p>
+                </div>
+                <div class="dresscode-card" data-animate>
+                    <div class="dresscode-icon">👗</div>
+                    <h3 class="dresscode-title">Damas</h3>
+                    <p class="dresscode-description">
+                        Vestido, falda, pantalón elegante o el atuendo con el que te sientas radiante.
+                    </p>
+                </div>
+            </div>
+
+            <div class="reserved-note" data-animate>
+                <p><strong>✨ Nota importante:</strong> Solo se reserva el color blanco para la novia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section">
+        <div class="parallax-bg" id="parallax4"></div>
+
+        <div class="section-flower left" data-animate>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="petalGrad5">
+                        <stop offset="0%" stop-color="#E8C4A0" />
+                        <stop offset="100%" stop-color="#D4AF37" />
+                    </radialGradient>
+                </defs>
+                <g transform="translate(60,60)">
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad5)" opacity="0.8" transform="rotate(0)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad5)" opacity="0.8" transform="rotate(72)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad5)" opacity="0.8" transform="rotate(144)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad5)" opacity="0.8" transform="rotate(216)" />
+                    <ellipse rx="18" ry="30" fill="url(#petalGrad5)" opacity="0.8" transform="rotate(288)" />
+                    <circle r="10" fill="#B8963C" opacity="0.9" />
+                </g>
+            </svg>
+        </div>
+
+        <h2 class="section-title" data-animate>Confirma tu Asistencia</h2>
+        <form class="rsvp-form" data-animate id="rsvpForm">
+            <div class="form-group">
+                <label class="form-label" for="name">Nombre Completo</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="phone">Teléfono</label>
+                <div class="phone-input-group">
+                    <input type="text" value="+56" class="form-input phone-prefix" readonly>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="9 1234 5678"
+                        pattern="[0-9]{9}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="guests">Número de Invitados</label>
+                <select id="guests" name="guests" class="form-select" required>
+                    <option value="">Selecciona cantidad</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                    <option value="5">5 personas</option>
+                    <option value="6">6 personas</option>
+                    <option value="7">7 personas</option>
+                    <option value="8">8 personas</option>
+                    <option value="9">9 personas</option>
+                    <option value="10">10 personas</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="message">Mensaje (Opcional)</label>
+                <textarea id="message" name="message" class="form-textarea"
+                    placeholder="Déjanos un mensaje..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">CONFIRMAR ASISTENCIA</button>
+        </form>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✨</div>
+            <h3 class="modal-title">¡Confirmación Recibida!</h3>
+            <p class="modal-text" id="modalMessage">
+                Gracias por confirmar tu asistencia. ¡Nos vemos en la boda!
+            </p>
+            <button class="modal-btn" onclick="closeModal()">CERRAR</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">"Donde hay amor, hay vida" - Mahatma Gandhi</p>
+    </footer>
+
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
