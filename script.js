@@ -2,7 +2,7 @@
         // ==========================================
         // CONFIGURACIÓN - PEGA AQUÍ TU URL DE GOOGLE SCRIPT
         // ==========================================
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgQzAXOHVBYxBbCjZn7YBnO9FmVDMFtwIlcp2P6GIEtSeQPuKW7B7ntMhftVVNM3E/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7kEzJmR9bSC3tTuYeMLUh7H4sZEDWQTC-1r6Ue3r4k7wQv9GQnD8z/exec';
 
         // ==========================================
         // FUNCIONES PRINCIPALES
