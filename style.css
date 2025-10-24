@@ -1333,54 +1333,53 @@
                 bottom: 2%;
                 right: 2%;
             }
-        }
 
-        .dresscode-section {
-            padding: 4rem 1rem;
-        }
+            .dresscode-section {
+                padding: 4rem 1rem;
+            }
 
-        .dresscode-cards {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+            .dresscode-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
 
-        .dresscode-card {
-            padding: 1.5rem;
-        }
+            .dresscode-card {
+                padding: 1.5rem;
+            }
 
-        .dresscode-icon {
-            font-size: 3rem;
-        }
+            .dresscode-icon {
+                font-size: 3rem;
+            }
 
-        .dresscode-title {
-            font-size: 1.8rem;
-        }
+            .dresscode-title {
+                font-size: 1.8rem;
+            }
 
-        .gifts-section {
-            padding: 4rem 1rem;
-        }
+            .gifts-section {
+                padding: 4rem 1rem;
+            }
 
-        .envelopes-container {
-            gap: 1.5rem;
-        }
+            .envelopes-container {
+                gap: 1.5rem;
+            }
 
-        .envelope {
-            width: 80px;
-            height: 80px;
-        }
+            .envelope {
+                width: 80px;
+                height: 80px;
+            }
 
-        .bank-details {
-            padding: 1.5rem;
-        }
+            .bank-details {
+                padding: 1.5rem;
+            }
 
-        .bank-title {
-            font-size: 1.8rem;
-        }
+            .bank-title {
+                font-size: 1.8rem;
+            }
 
-        .gifts-text {
-            font-size: 1.1rem;
+            .gifts-text {
+                font-size: 1.1rem;
+            }
         }
-
 
         /* Notificación de copiado */
         .copy-notification {

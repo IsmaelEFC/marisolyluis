@@ -3,7 +3,6 @@
         // CONFIGURACIÓN - PEGA AQUÍ TU URL DE GOOGLE SCRIPT
         // ==========================================
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgQzAXOHVBYxBbCjZn7YBnO9FmVDMFtwIlcp2P6GIEtSeQPuKW7B7ntMhftVVNM3E/exec';
-        // Ejemplo: 'https://script.google.com/macros/s/ABC123.../exec'
 
         // ==========================================
         // FUNCIONES PRINCIPALES
@@ -58,36 +57,33 @@
         // Music Control
         const musicControl = document.getElementById('musicControl');
         const bgMusic = document.getElementById('bgMusic');
-        let isPlaying = false;
 
         musicControl.addEventListener('click', () => {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicControl.classList.remove('playing');
-                musicControl.querySelector('.music-icon').textContent = '🎵';
-            } else {
+            if (bgMusic.paused) {
                 bgMusic.play();
                 musicControl.classList.add('playing');
                 musicControl.querySelector('.music-icon').textContent = '🎶';
+            } else {
+                bgMusic.pause();
+                musicControl.classList.remove('playing');
+                musicControl.querySelector('.music-icon').textContent = '🎵';
             }
-            isPlaying = !isPlaying;
         });
 
         // Auto-play music
         let autoPlayAttempted = false;
         document.addEventListener('click', () => {
-            if (!autoPlayAttempted && !isPlaying) {
+            if (!autoPlayAttempted && bgMusic.paused) {
                 bgMusic.play().then(() => {
-                    isPlaying = true;
                     musicControl.classList.add('playing');
                     musicControl.querySelector('.music-icon').textContent = '🎶';
-                }).catch(() => { });
+                }).catch((error) => { console.log("La reproducción automática fue bloqueada por el navegador.", error); });
                 autoPlayAttempted = true;
             }
         }, { once: true });
 
         // Share Button
-        document.getElementById('shareButton').addEventListener('click', (e) => {
+        document.getElementById('shareButton')?.addEventListener('click', (e) => {
             e.preventDefault();
             const url = window.location.href;
             const mensaje = `💍 ¡Estás invitado a nuestra boda! ✨\n\n👰🏻 Marisol & Luis 🤵🏻\n📅 15 de Febrero 2026\n\n¡No te lo pierdas! Confirma tu asistencia aquí:\n${url}`;
@@ -95,14 +91,8 @@
         });
 
         // Countdown Timer
-        function getWeddingDate() {
-            const dateText = document.querySelector('.hero-date').textContent.trim();
-            const [day, month, year] = dateText.split('.').map(part => parseInt(part.trim()));
-            return new Date(year, month - 1, day, 16, 0, 0).getTime();
-        }
-
-        let weddingDate = getWeddingDate();
-
+        // Formato: Año, Mes (0-11), Día, Hora, Minuto, Segundo
+        const weddingDate = new Date(2026, 1, 15, 16, 0, 0).getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
@@ -153,35 +143,25 @@
         });
 
         // Parallax Effect
+        function applyParallax(elementId, speed) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const scrolled = window.pageYOffset;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            }
+        }
+
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-
             const heroBg = document.querySelector('.hero-bg.parallax');
-            if (heroBg) {
-                const heroSection = document.querySelector('.hero');
-                const heroHeight = heroSection.offsetHeight;
-                const heroTop = heroSection.offsetTop;
-                const scrollProgress = (scrolled - heroTop) / heroHeight;
+            if (heroBg) heroBg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
 
-                if (scrolled < heroHeight) {
-                    heroBg.style.transform = `translateY(${scrolled * 0.5}px) scale(1.1)`;
-                    heroBg.style.opacity = Math.max(0.3 - scrollProgress * 0.2, 0.1);
-                }
-            }
-
-            const parallax1 = document.getElementById('parallax1');
-            const parallax2 = document.getElementById('parallax2');
-            const parallax3 = document.getElementById('parallax3');
-            const parallax4 = document.getElementById('parallax4');
-            const parallax5 = document.getElementById('parallax5');
-            const parallax6 = document.getElementById('parallax6');
-
-            if (parallax1) parallax1.style.transform = `translateY(${scrolled * 0.5}px)`;
-            if (parallax2) parallax2.style.transform = `translateY(${scrolled * 0.3}px)`;
-            if (parallax3) parallax3.style.transform = `translateY(${scrolled * 0.4}px)`;
-            if (parallax4) parallax4.style.transform = `translateY(${scrolled * 0.2}px)`;
-            if (parallax5) parallax5.style.transform = `translateY(${scrolled * 0.35}px)`;
-            if (parallax6) parallax6.style.transform = `translateY(${scrolled * 0.45}px)`;
+            applyParallax('parallax1', 0.5);
+            applyParallax('parallax2', 0.3);
+            applyParallax('parallax3', 0.4);
+            applyParallax('parallax4', 0.2);
+            applyParallax('parallax5', 0.35);
+            applyParallax('parallax6', 0.45);
         });
 
         // Form Submission con Google Sheets
@@ -192,7 +172,7 @@
         responseMessage.style.textAlign = 'center';
         responseMessage.style.fontWeight = '500';
         form.appendChild(responseMessage);
-
+        
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -228,11 +208,16 @@
             formData.set('phone', fullPhone); // Aseguramos que el teléfono tenga el código de país
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbx7kEzJmR9bSC3tTuYeMLUh7H4sZEDWQTC-1r6Ue3r4k7wQv9GQnD8z/exec', {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     body: formData
                 });
                 
+                if (!response.ok) {
+                    // Si la respuesta del servidor no es exitosa (ej. error 500)
+                    throw new Error(`Error del servidor: ${response.statusText}`);
+                }
+
                 const text = await response.text();
                 let data;
                 try {
