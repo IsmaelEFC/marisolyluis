@@ -252,6 +252,7 @@
             padding: 6rem 2rem;
             background: var(--cream-bg); /* Fondo sólido para el efecto neumórfico */
             position: relative;
+            overflow: hidden;
         }
 
         .parallax-bg {
@@ -397,6 +398,7 @@
             padding: 8rem 2rem;
             background: var(--cream-bg); /* Fondo sólido para el efecto neumórfico */
             position: relative;
+            overflow: hidden;
         }
 
         .events-container {
@@ -515,6 +517,7 @@
             padding: 8rem 2rem;
             background: var(--cream-bg); /* Fondo sólido para el efecto neumórfico */
             position: relative;
+            overflow: hidden;
         }
 
         .rsvp-form {
@@ -1107,6 +1110,7 @@
             padding: 8rem 2rem;
             background: var(--cream-bg); /* Fondo sólido para el efecto neumórfico */
             position: relative;
+            overflow: hidden;
         }
 
         .dresscode-content {
