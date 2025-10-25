@@ -443,6 +443,7 @@
             background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
+            pointer-events: none; /* Permite que los clics pasen a través de esta capa */
         }
 
         .event-card:hover::before {

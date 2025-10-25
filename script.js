@@ -76,7 +76,7 @@
 
         // Countdown Timer
         // Formato: Año, Mes (0-11), Día, Hora, Minuto, Segundo
-        const weddingDate = new Date(2026, 1, 15, 16, 0, 0).getTime();
+        const weddingDate = new Date(2026, 1, 14, 19, 0, 0).getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
