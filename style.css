@@ -82,8 +82,8 @@
             font-size: 24px;
         }
 
-        /* Share Button */
-        .share-button {
+        /* Share Button (Comentado) */
+        /* .share-button {
             position: fixed;
             bottom: 100px;
             right: 30px;
@@ -110,7 +110,7 @@
 
         .share-icon {
             font-size: 28px;
-        }
+        } */
 
         /* Hero Section */
         .hero {

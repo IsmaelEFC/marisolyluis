@@ -66,13 +66,13 @@
             }
         }, { once: true });
 
-        // Share Button
-        document.getElementById('shareButton')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            const url = window.location.href;
-            const mensaje = `💍 ¡Estás invitado a nuestra boda! ✨\n\n👰🏻 Marisol & Luis 🤵🏻\n📅 15 de Febrero 2026\n\n¡No te lo pierdas! Confirma tu asistencia aquí:\n${url}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
-        });
+        // Share Button (Comentado)
+        // document.getElementById('shareButton')?.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     const url = window.location.href;
+        //     const mensaje = `💍 ¡Estás invitado a nuestra boda! ✨\n\n👰🏻 Marisol & Luis 🤵🏻\n📅 14 de Febrero 2026\n\n¡No te lo pierdas! Confirma tu asistencia aquí:\n${url}`;
+        //     window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
+        // });
 
         // Countdown Timer
         // Formato: Año, Mes (0-11), Día, Hora, Minuto, Segundo
