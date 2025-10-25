@@ -66,6 +66,17 @@
             }
         }, { once: true });
 
+        // Pausar la música si la pestaña deja de estar visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                if (!bgMusic.paused) {
+                    bgMusic.pause();
+                    musicControl.classList.remove('playing');
+                    musicControl.querySelector('.music-icon').textContent = '🎵';
+                }
+            }
+        });
+
         // Share Button (Comentado)
         // document.getElementById('shareButton')?.addEventListener('click', (e) => {
         //     e.preventDefault();
